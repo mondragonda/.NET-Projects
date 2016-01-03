@@ -54,5 +54,18 @@ namespace Grades.Tests
 
             Assert.AreEqual(20, stats.AverageGrade);
         }
+
+        [TestMethod]
+        public void ComputeLetterGrade()
+        {
+            GradeBook.GradeBook book = new GradeBook.GradeBook();
+            book.AddGrade(10);
+            book.AddGrade(20);
+            book.AddGrade(30);
+
+            GradeStatistics stats = book.ComputeStatistics();
+
+            Assert.AreEqual("F", stats.LetterGrade);
+        }
     }
 }
