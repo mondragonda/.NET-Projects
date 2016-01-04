@@ -20,7 +20,7 @@ namespace Acme.Biz.Tests
 
             var expectedSucceded = true;
             var expectedMessage = "Order from Acme, Inc." + System.Environment.NewLine +
-                "Product: Tools-1" + System.Environment.NewLine +
+                "Product: Tools-0001" + System.Environment.NewLine +
                 "Quantity: 3" + System.Environment.NewLine + "Instructions: standard delivery";
 
             //Act
@@ -42,7 +42,7 @@ namespace Acme.Biz.Tests
 
             var expectedSucceded = true;
             var expectedMessage = "Order from Acme, Inc." + System.Environment.NewLine +
-                "Product: Tools-1" + System.Environment.NewLine +
+                "Product: Tools-0001" + System.Environment.NewLine +
                 "Quantity: 3" + System.Environment.NewLine + "Deliver By: 04/01/2016"
                 + System.Environment.NewLine + "Instructions: standard delivery";
 
@@ -66,7 +66,7 @@ namespace Acme.Biz.Tests
 
             var expectedSucceded = true;
             var expectedMessage = "Order from Acme, Inc." + System.Environment.NewLine +
-                "Product: Tools-1" + System.Environment.NewLine +
+                "Product: Tools-0001" + System.Environment.NewLine +
                 "Quantity: 3" + System.Environment.NewLine + "Deliver By: 04/01/2016"
                 + System.Environment.NewLine + "Instructions: White Color";
 
@@ -115,8 +115,8 @@ namespace Acme.Biz.Tests
             var expected = new OperationResult(true, "Test With Address With Copy");
 
             //Act
-            var actual = vendor.PlaceOrder(product, 
-                                           quantity: 2, 
+            var actual = vendor.PlaceOrder(product,
+                                           quantity: 2,
                                            includeAddress: Vendor.IncludeAdress.Yes,
                                            sendCopy: Vendor.SendCopy.Yes);
             //Assert
@@ -129,17 +129,48 @@ namespace Acme.Biz.Tests
         {
             //Arrange
             var vendor = new Vendor();
-            var product = new Product(1,"Ferrari F50", "Sports Racing Car");
+            var product = new Product(1, "Ferrari F50", "Sports Racing Car");
 
             var expected = new OperationResult(true, "Order from Acme, Inc." + System.Environment.NewLine +
-                "Product: Tools-1" + System.Environment.NewLine +
+                "Product: Tools-0001" + System.Environment.NewLine +
                 "Quantity: 1" + System.Environment.NewLine + "Instructions: Red Color");
             //Act
-            var actual = vendor.PlaceOrder(product, 1, instructions:"Red Color");
+            var actual = vendor.PlaceOrder(product, 1, instructions: "Red Color");
 
             //Assert
             Assert.AreEqual(expected.Success, actual.Success);
             Assert.AreEqual(expected.Message, actual.Message);
+        }
+
+        [TestMethod]
+        public void ToStringTest()
+        {
+            //Arrange
+            var vendor = new Vendor();
+            vendor.CompanyName = "Softtek";
+
+            var expected = "Supplier: Softtek";
+            //Act
+            var actual = vendor.ToString();
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
+        public void PrepareDirectionsTest()
+        {
+            //Arrange
+            var vendor = new Vendor();
+            vendor.VendorId = 1;
+            vendor.CompanyName = "Softtek";
+            vendor.Email = "diego.mondragon@gmail.com";
+            var expected = @"Insert \r\n to define a new line";
+            //Act
+            var actual = vendor.PrepareDirections();
+            Console.WriteLine(actual);
+            //Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
