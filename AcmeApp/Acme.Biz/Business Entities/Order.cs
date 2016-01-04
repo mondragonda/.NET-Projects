@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Acme.Biz
 {
-    class Order
+    public class Order
     {
+     
     }
 }

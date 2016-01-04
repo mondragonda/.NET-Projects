@@ -53,11 +53,16 @@
   <ItemGroup>
     <Compile Include="ProductTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VendorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Acme.Biz\Acme.Biz.csproj">
       <Project>{99AFAF8D-D787-4C4A-9A0E-0D882CC5BBF6}</Project>
       <Name>Acme.Biz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Acme.Common\Acme.Common.csproj">
+      <Project>{0ed069a3-3821-4b20-a29b-a9cdc393c362}</Project>
+      <Name>Acme.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

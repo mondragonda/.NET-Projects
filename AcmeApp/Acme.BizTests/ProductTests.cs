@@ -19,7 +19,7 @@ namespace Acme.Biz.Tests
             product.ProductName = "Visual Studio";
             product.Description = "Microsoft MultiLanguage IDE";
             product.ProductVendor.CompanyName = "Softtek";
-           
+
 
             var companyName = product?.ProductVendor?.CompanyName;
 
@@ -101,6 +101,151 @@ namespace Acme.Biz.Tests
             var actual = product.MinimumPrice;
             //Assert
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ProductNameFormat()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            currentProduct.ProductName = " Steel Hammer ";
+
+            var expected = "Steel Hammer";
+            //Act
+            var actual = currentProduct.ProductName;
+
+            //Assert 
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void ProductNameTooShort()
+        {
+            //Arrange
+            var product = new Product();
+            product.ProductName = "ET";
+            string expectedProductName = null;
+            var expectedValidationMessage = "Product Name must be at least 3 characters";
+            //Act
+            var actualProductName = product.ProductName;
+            var actualValidationMessage = product.ValidationMessage;
+            //Assert
+            Assert.AreEqual(expectedProductName, actualProductName);
+            Assert.AreEqual(expectedValidationMessage, actualValidationMessage);
+
+
+        }
+
+        [TestMethod]
+        public void ProductNameTooLong()
+        {
+            //Arrange
+            var product = new Product();
+            product.ProductName = "This product name is too long and is not accepted by the program";
+            string expectedProductName = null;
+            var expectedValidationMessage = "Product Name cannot be more than 20 characters";
+            //Act
+            var actualProductName = product.ProductName;
+            var actualValidationMessage = product.ValidationMessage;
+            //Assert
+            Assert.AreEqual(expectedProductName, actualProductName);
+            Assert.AreEqual(expectedValidationMessage, actualValidationMessage);
+        }
+
+        [TestMethod]
+        public void ProductNameJustRight()
+        {
+            //Arrange
+            var product = new Product();
+            product.ProductName = "Honor 4x";
+            var expectedProductName = "Honor 4x";
+            string expectedValidationMessage = null;
+            //Act
+            var actualProductName = product.ProductName;
+            var actualValidationMessage = product.ValidationMessage;
+            //Assert
+            Assert.AreEqual(expectedProductName, actualProductName);
+            Assert.AreEqual(expectedValidationMessage, actualValidationMessage);
+        }
+
+        [TestMethod]
+        public void CategoryDefaultValue()
+        {
+            //Arrange
+            var product = new Product();
+            var expectedCategoryValue = "Tools";
+            //Act
+            var actualCategoryValue = product.Category;
+            //Assert
+            Assert.AreEqual(expectedCategoryValue, actualCategoryValue);
+
+        }
+
+        [TestMethod]
+        public void CategoryNewValue()
+        {
+            //Arrange
+            var product = new Product();
+            product.Category = "SmartPhone";
+            var expectedCategoryValue = "SmartPhone";
+            //Act
+            var actualCategoryValue = product.Category;
+            //Assert
+            Assert.AreEqual(expectedCategoryValue, actualCategoryValue);
+
+        }
+
+        [TestMethod]
+        public void ProductSequenceDefaultValue()
+        {
+            //Arrange
+            var product = new Product();
+            var expectedSequenceNumber = 1;
+            //Act
+            var actualSequenceNumber = product.SequenceNumber;
+            //Assert
+            Assert.AreEqual(expectedSequenceNumber, actualSequenceNumber);
+        }
+
+        [TestMethod]
+        public void ProductSequenceNewValue()
+        {
+            //Arrange 
+            var product = new Product();
+            product.SequenceNumber = 2;
+            var expectedSequenceNumber = 2;
+            //Act
+            var actualSequenceNumber = product.SequenceNumber;
+            //Assert
+            Assert.AreEqual(expectedSequenceNumber, actualSequenceNumber);
+        }
+
+        [TestMethod]
+        public void ProductCodeDefaultValue()
+        {
+            //Arrange
+            var product = new Product();
+            var expectedProductCode = "Tools-1";
+            //Act
+            var actualProductCode = product.ProductCode;
+            //Assert
+            Assert.AreEqual(expectedProductCode, actualProductCode);
+
+        }
+
+        [TestMethod()]
+        public void CalculateSuggestedPriceTest()
+        {
+            //Arrange 
+            var product = new Product();
+            product.Cost = 50m;
+            var expected = 55m;
+            //Act
+            var actual = product.CalculateSuggestedPrice(10m);
+            //Assert
+            Assert.AreEqual(expected, actual);
+
         }
     }
 }
