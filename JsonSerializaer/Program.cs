@@ -14,7 +14,7 @@ namespace JsonSerializaer
         static void Main(string[] args)
         {
             String jsonString = File.ReadAllText("student.json");
-            //Student student = JsonParser.Deserialize<Student>(jsonString);
+       
 
             Student student = new Student();
             student.Id = 232425;
