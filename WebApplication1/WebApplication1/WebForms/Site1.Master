@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication1.WebForms.Site1" %>
+
+<%@ Register src="../UserControls/Footer.ascx" tagname="Footer" tagprefix="uc1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style5 {
+            width: 100%;
+            background-color: #000080;
+        }
+        .auto-style7 {
+            height: 6px;
+            text-align: center;
+            background-color: #000099;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            text-transform: capitalize;
+            font-size: xx-large;
+            color: #FFFFFF;
+        }
+        .auto-style17 {
+            width: 167px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #FFFFFF;
+            background-color: #003366;
+            height: 28px;
+        }
+        .auto-style23 {
+            width: 168px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #FFFFFF;
+            background-color: #003366;
+            height: 28px;
+        }
+
+        .popUpMenu{
+            color:ButtonHighlight;
+        }
+        .auto-style24 {
+            width: 269px;
+            height: 62px;
+            background-position-y:center;
+            margin-top:20px;
+        }
+        .auto-style25 {
+            font-size: medium;
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <asp:ScriptManager runat="server"></asp:ScriptManager>
+      
+    <div>
+        <table class="auto-style5">
+        <tr>
+            <td class="auto-style7" colspan="5">
+                <img alt="" class="auto-style24" src="../App_Themes/Header/Images/descologonuevo.png" /><br />
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style17">
+                <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="White" OnClick="LinkButton1_Click">INICIO</asp:LinkButton>
+            <td class="auto-style17">
+                <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="White">PROVEEDORES</asp:LinkButton>
+            </td>
+            <td class="auto-style23">
+                <asp:LinkButton ID="LinkButton3" runat="server" ForeColor="White">FACTURACIÓN</asp:LinkButton>
+            </td>
+            <td class="auto-style23">
+                <asp:LinkButton ID="LinkButton4" runat="server" ForeColor="White">CLIENTES</asp:LinkButton>
+            </td>
+            <td class="auto-style23">
+                <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="White">REPORTES</asp:LinkButton>
+            </td>
+        </tr>
+    </table>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+         <uc1:Footer ID="Footer1" runat="server" />
+    </form>
+</body>
+</html>

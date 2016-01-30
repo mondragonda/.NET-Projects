@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CargarFacDigXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Txtxml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarFacDigXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CargarFacDigXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Seguridad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StrUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeguridadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SeguridadResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CargarFacDigXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarFacDigXml" />
+  </wsdl:message>
+  <wsdl:message name="CargarFacDigXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarFacDigXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeguridadSoapIn">
+    <wsdl:part name="parameters" element="tns:Seguridad" />
+  </wsdl:message>
+  <wsdl:message name="SeguridadSoapOut">
+    <wsdl:part name="parameters" element="tns:SeguridadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wCargaXmlSoap">
+    <wsdl:operation name="CargarFacDigXml">
+      <wsdl:input message="tns:CargarFacDigXmlSoapIn" />
+      <wsdl:output message="tns:CargarFacDigXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Seguridad">
+      <wsdl:input message="tns:SeguridadSoapIn" />
+      <wsdl:output message="tns:SeguridadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wCargaXmlSoap" type="tns:wCargaXmlSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CargarFacDigXml">
+      <soap:operation soapAction="http://tempuri.org/CargarFacDigXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Seguridad">
+      <soap:operation soapAction="http://tempuri.org/Seguridad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wCargaXmlSoap12" type="tns:wCargaXmlSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CargarFacDigXml">
+      <soap12:operation soapAction="http://tempuri.org/CargarFacDigXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Seguridad">
+      <soap12:operation soapAction="http://tempuri.org/Seguridad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wCargaXml">
+    <wsdl:port name="wCargaXmlSoap" binding="tns:wCargaXmlSoap">
+      <soap:address location="https://admin.sanborns.com.mx/sisFactDig/sw/wCargaXml.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wCargaXmlSoap12" binding="tns:wCargaXmlSoap12">
+      <soap12:address location="https://admin.sanborns.com.mx/sisFactDig/sw/wCargaXml.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

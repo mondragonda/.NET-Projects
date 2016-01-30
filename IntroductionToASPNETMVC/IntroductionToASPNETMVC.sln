@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroductionToASPNETMVC", "IntroductionToASPNETMVC\IntroductionToASPNETMVC.csproj", "{E2D608BF-33FE-46D2-92B3-DD9783E5581B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroductionToASPNETMVC.Tests", "IntroductionToASPNETMVC.Tests\IntroductionToASPNETMVC.Tests.csproj", "{475FF7B6-CD4C-461F-8DB2-8F27553F3733}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2D608BF-33FE-46D2-92B3-DD9783E5581B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2D608BF-33FE-46D2-92B3-DD9783E5581B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2D608BF-33FE-46D2-92B3-DD9783E5581B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2D608BF-33FE-46D2-92B3-DD9783E5581B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{475FF7B6-CD4C-461F-8DB2-8F27553F3733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{475FF7B6-CD4C-461F-8DB2-8F27553F3733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{475FF7B6-CD4C-461F-8DB2-8F27553F3733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{475FF7B6-CD4C-461F-8DB2-8F27553F3733}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
